@@ -44,6 +44,32 @@ drop.post("hisPrice") { request in
     return "Error retrieving parameters."
 }
 
+drop.post("stockData") { request in
+    
+    if let numStr = request.data["key"]?.string {
+        if let num = Int(numStr) {
+            if num>1000&&num<10000{
+                let pGetter = StockPriceGetter(number:Int(numStr)!)
+                if let sDate = request.data["startDate"]?.string{
+                    if let eDate = request.data["endDate"]?.string{
+                        
+                        let stockHisData = pGetter.getHistoryInformation(startDate: sDate, endDate: eDate)
+                        if stockHisData.count > 1{
+                            let sCacer = StockCaculator(data:stockHisData)
+                            return "\(sCacer.RSI())"
+                        }
+                        
+                        
+                        return "出錯了!"
+                    }
+                }
+            }
+        }
+        
+    }
+    return "Error retrieving parameters."
+}
+
 
 drop.resource("posts", PostController())
 

@@ -9,7 +9,6 @@ class StockPriceGetter{
     init(number:Int) {
         self.stockNum = number
         
-        
     }
     
     func getHistoryPrice(startDate:String,endDate:String) -> [String:String] {
@@ -39,12 +38,61 @@ class StockPriceGetter{
                 }
                 
             }else{
-                reDic = ["訊息":"出錯了呢"]
+                reDic = ["訊息":"抓不出資料"]
             }
             
         }catch{
             print("getDataError")
             reDic = ["訊息":"資料取得失敗"]
+        }
+        
+        return reDic
+        
+    }
+    
+    
+    func getHistoryInformation(startDate:String,endDate:String) -> [[Double]] {
+        
+        let hisStockURL = "http://www.cnyes.com/twstock/ps_historyprice/\(stockNum).htm"
+        var reDic:[[Double]] = []
+        print(startDate)
+        print(endDate)
+        
+        let dropp = Droplet()
+        do{
+            
+            let respond = try dropp.client.request(.other(method:"Post"),
+                                                   hisStockURL,headers: ["Content-Type": "application/x-www-form-urlencoded"],
+                                                   query:[:],
+                                                   body:"ctl00$ContentPlaceHolder1$startText=\(startDate)&ctl00$ContentPlaceHolder1$endText=\(endDate)")
+            
+            
+            let result = try String(bytes: respond.body.bytes!)
+            let jiDoc = Ji(htmlString: result)!
+            let startPriceNodes = jiDoc.xPath("//div[@id='main3']/div[@class='mbx bd3']/div[@class='tab']/table/tr/td[2]")
+            let hightestPriceNodes = jiDoc.xPath("//div[@id='main3']/div[@class='mbx bd3']/div[@class='tab']/table/tr/td[3]")
+            let lowestPriceNodes = jiDoc.xPath("//div[@id='main3']/div[@class='mbx bd3']/div[@class='tab']/table/tr/td[4]")
+            let endPriceNodes = jiDoc.xPath("//div[@id='main3']/div[@class='mbx bd3']/div[@class='tab']/table/tr/td[5]")
+            let timeNodes = jiDoc.xPath("//div[@id='main3']/div[@class='mbx bd3']/div[@class='tab']/table/tr/td[1]")
+            
+            //收盤,開盤,最高,最低
+            if endPriceNodes!.count > 0{
+                for index in 0...endPriceNodes!.count-1{
+                    reDic.append([
+                        "\(endPriceNodes![index].content!)".double!,
+                        "\(startPriceNodes![index].content!)".double!,
+                        "\(hightestPriceNodes![index].content!)".double!,
+                        "\(lowestPriceNodes![index].content!)".double!,
+                    ])
+                }
+                
+            }else{
+                reDic = [[0.0]]
+            }
+            
+        }catch{
+            print("getDataError")
+            reDic = [[0.0]]
         }
         
         return reDic

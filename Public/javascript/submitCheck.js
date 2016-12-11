@@ -1,5 +1,5 @@
 //此check()函式在最後的「傳送」案鈕會用到
-function check()
+function check(a)
 {
     //若<form>屬性name值為reg裡的文字方塊值為空字串，則顯示「未輸入姓名」
     if(reg2.key.value == "")
@@ -12,6 +12,8 @@ function check()
     {
         alert("未輸入結束日期");
     }
-    
-    else reg2.submit();
+    else{
+        reg2.action = a;
+        reg2.submit();
+    }
 }
