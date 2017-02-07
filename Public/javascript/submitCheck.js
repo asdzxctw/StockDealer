@@ -1,7 +1,7 @@
 //此check()函式在最後的「傳送」案鈕會用到
 function check(a)
 {
-    //若<form>屬性name值為reg裡的文字方塊值為空字串，則顯示「未輸入姓名」
+    //若<form>屬性name值為reg裡的文字方塊值為空字串，則顯示「未輸入股票代碼」
     if(reg2.key.value == "")
     {
         alert("未輸入股票代碼");

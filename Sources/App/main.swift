@@ -17,6 +17,18 @@ drop.get("html") { request in
     return try drop.view.make("index.html")
 }
 
+drop.get("abc") { request in
+    return try drop.view.make("abc.html")
+}
+
+drop.get("abcd") { request in
+    return try drop.view.make("abcd.html")
+}
+
+drop.get("ccc") { request in
+    return try drop.view.make("index2.html")
+}
+
 drop.get("test") { request in
     return "test個毛啊"
 }

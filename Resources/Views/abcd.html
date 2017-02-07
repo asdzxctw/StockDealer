@@ -1,0 +1,81 @@
+<html><head>
+    <title>冰淇淋</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+</head>
+
+<body><div class="container">
+    <div class="row marginbottom10">
+        <form name="form0" id="form0" method="GET" class="marginbottom10">
+            <div class="col-md-3 col-md-offset-2 text-center">
+                Start Year
+                <select id="startyear" class="select-style1">
+                    <option value="1">2012</option>
+                    <option value="2">2013</option>
+                    <option value="3">2014</option>
+                    <option value="4">2015</option>
+                    <option value="5">2016</option>
+                </select>
+            </div>
+            <div class="col-md-3 text-center">
+                End Year
+                <select id="endyear" class="select-style1">
+                    <option value="1">2012</option>
+                    <option value="2">2013</option>
+                    <option value="3">2014</option>
+                    <option value="4">2015</option>
+                    <option value="5">2016</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-9 text-center">
+            <form name="form1" id="form1" method="GET" class="marginbottom10">
+                <select id="target1" name="target1" class="select-style1">
+                    <option value="EPS">每股盈餘(元)</option>
+                    <option value="NATPM">稅後淨利率(%)</option>
+                    <option value="ROE">股東權益報酬率(%)</option>
+                    <option value="IT">存貨周轉率(%)</option>
+                    <option value="DY">殖利率(%)</option>
+                    <option value="NVPS">每股淨值(元)</option>
+                    <option value="OP">營業毛利率(%)</option>
+                    <option value="OPMGR">營收成長率(%)</option>
+                    <option value="OPM">營業利益率(%)</option>
+                    <option value="LR">流動比率(%)</option>
+                    <option value="NIGR">稅後淨利成長率(%)</option>
+                    <option value="DR">負債比率(%)</option>
+                    <option value="ATNI">稅後淨利(千元)</option>
+                    <option value="PS">每股營業額(元)</option>
+                    <option value="PE">本益比(以月計而且僅3,6,9,12)</option>
+                    <option value="PBR">股價淨值比</option>
+                    
+                </select>
+                <select id="comparison1" class="select-style1">
+                    <option value="1">&gt;</option>
+                    <option value="2">&lt;</option>
+                    
+                </select>
+                <input id="text1" type="text" name="data1" class="textbox1">
+                    </form>
+        </div>
+        
+        <div class="col-md-3">
+            <input type="button" value="search" onclick="search()" class="button1 marginbottom30" id="search">
+                <input type="button" value="clear" class="button1" id="clear" onclick="clear2()">
+                    </div>
+        
+    </div>
+    <div class="row" id="resultHere">
+        <table id="table1" border="1" width="70%">
+            　<tr>
+                　<td>股票代號</td>
+                　<td>公司名稱</td>
+                　</tr>
+        </table>
+    </div>
+    
+</div>
+<script language="JavaScript" src="javascript/abcd.js"></script>
+<script language="JavaScript" src="javascript/graphing2.js"></script>
+</body></html>
