@@ -17,12 +17,12 @@ drop.get("html") { request in
     return try drop.view.make("index.html")
 }
 
-drop.get("abc") { request in
-    return try drop.view.make("abc.html")
-}
-
 drop.get("abcd") { request in
     return try drop.view.make("abcd.html")
+}
+
+drop.get("co") { request in
+    return try drop.view.make("co.html")
 }
 
 drop.get("ccc") { request in

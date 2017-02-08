@@ -1,0 +1,19 @@
+<HTML>
+    <HEAD>
+        <TITLE> 棉花糖 </TITLE>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    </HEAD>
+    <BODY>
+        <form id="compareForm" method="get">
+            <p>第一隻： <input type="text" id="company1" /></p>
+            <p>第二隻： <input type="text" id="company2" /></p>
+            <input type="button" value="開始" onClick="coefficient(); onClickCo();" />
+            <input type="button" value="清除" onClick="clear3();" />
+        </form>
+        <div id="coefficientGraph"></div>
+        
+        <script language="JavaScript" src="javascript/co.js"></script>
+        <script language="JavaScript" src="javascript/graphing2.js"></script>
+    </BODY>
+</HTML>

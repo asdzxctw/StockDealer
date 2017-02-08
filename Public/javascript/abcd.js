@@ -100,7 +100,7 @@ function sentID(id){
         }
     }
 };
-    function clear2(){
+function clear2(){
     document.getElementById("form1").reset();
     var ddd =  document.getElementById("resultHere");
     ddd.removeChild(document.getElementById("table1"))

@@ -158,9 +158,9 @@ function singlestock(id) {
 //  Compare Stock   //
 function coefficient(AstockId,BstockId){
     d3.selectAll("#coefficientGraph > *").remove();
-    var Astock = document.getElementById("form5");
+    var Astock = document.getElementById("compareForm");
     var AstockId = "s" + Astock.company1.value;
-    var Bstock = document.getElementById("form5");
+    var Bstock = document.getElementById("compareForm");
     var BstockId = "s" + Bstock.company2.value;  
     var docwidth = $(document).width();
     var width = docwidth*0.7;
