@@ -23,12 +23,10 @@ function singlestock(id) {
     var canvasTd = document.createElement('td');
     canvasTd.id = id + "div";
     canvasTd.setAttribute("colspan", 3)
-    var br = document.createElement('br')
-    canvasTd.appendChild(br)
     canvasTr.appendChild(canvasTd)
     insertAfter(canvasTr, document.getElementById(id))
     
-    var canvas = d3.select("#" + id + "div").append("svg").attr("width", "100%").attr("height", height);
+    var canvas = d3.select("#" + id + "div").append("svg").attr("width", "100%").attr("height", height).append('g').attr('transform', 'translate(45,35)');
     // var stockId = "s"+ id; 
     // var canvas = d3.select("#" + id).append("div").attr("class","SsingleCanvas").attr("width", width+200).attr("height", height+200);
     // var canvas = d3.select(".SsingleCanvas").append("svg").attr("class", "Ssingle").attr("width", width).attr("height", height*0.8);
@@ -127,8 +125,8 @@ function singlestock(id) {
         var scaleY = d3.scaleLinear().domain([minFinal, maxFinal]).range([height*0.9, 0]);
 
         var lines = d3.line().x(function(d,i){return i*(width/ln);}).y(function(d){return scaleY(d[id])});
-        canvas.append("path").data([data]).attr("d", lines).attr("stroke", "#A496B5").attr("stroke-width", "2").attr("fill", "none");
-        canvas.selectAll(".point").data(data).enter().append("svg:circle") .attr("stroke", "#A496B5").attr("fill", "#A496B5").attr("cx", function(d, i) {return i*(width/ln)}).attr("cy", function(d) {return scaleY(d[id])}) .attr("r", 4);
+        canvas.append("path").data([data]).attr("d", lines).attr("stroke", "#A496B5").attr("stroke-width", "2").attr("fill", "none").attr('transform', 'scale(0.95,1)');
+        canvas.selectAll(".point").data(data).enter().append("svg:circle") .attr("stroke", "#A496B5").attr("fill", "#A496B5").attr("cx", function(d, i) {return i*(width/ln)}).attr("cy", function(d) {return scaleY(d[id])}) .attr("r", 3).attr('transform', 'scale(0.95,1)');;
 
     //  Axis  //
         var Dates = [{"quarter": "2016"},{"quarter": " "},{"quarter": " "},
@@ -136,13 +134,13 @@ function singlestock(id) {
                      {"quarter": "2014"},{"quarter": " "},{"quarter": " "},{"quarter": " "},
                      {"quarter": "2013"},{"quarter": " "},{"quarter": " "},{"quarter": " "},
                      {"quarter": "2012"},{"quarter": " "},{"quarter": " "},{"quarter": " "}]
-        var scaleX = d3.scaleLinear().range([0, width*0.95]).domain([0,18]);
+        var scaleX = d3.scaleLinear().range([0, width*0.9]).domain([0,18]);
         var axisX = d3.axisTop().scale(scaleX).tickValues([2,6,10,14,18]) .tickFormat(function(d, i){return d*0 + (2016 - i);});
         var axisY = d3.axisLeft().scale(scaleY).ticks(10);
         canvas.append('g').call(axisX).attr({'fill':'none', 'stroke':'#000'}); 
         canvas.append('g').call(axisY).attr({'fill':'none', 'stroke':'#000'});
-        var axisYGrid = d3.axisLeft().scale(scaleY).ticks(10).tickFormat("").tickSize(-width,0);
-        canvas.append('g').call(axisYGrid).attr({'fill':'none',});
+        var axisYGrid = d3.axisLeft().scale(scaleY).ticks(10).tickFormat("").tickSize(-width*0.9,0);
+        canvas.append('g').call(axisYGrid).attr({'fill':'none'});
         }
     );
 
@@ -165,7 +163,7 @@ function coefficient(AstockId,BstockId){
     var docwidth = $(document).width();
     var width = docwidth*0.7;
     var height = 450;
-    var canvasCo = d3.select("#coefficientGraph").append("svg").attr("class", "canvasCo").attr("width", "100%").attr("height", height*0.9);
+    var canvasCo = d3.select("#coefficientGraph").append("svg").attr("class", "canvasCo").attr("width", "100%").attr("height", height*0.9).append('g').attr('transform', 'translate(45,35)');;
     
     d3.csv("https://cocoflyliu.github.io/stock_crawler/data/SP-r,d3.csv",
         function(data)

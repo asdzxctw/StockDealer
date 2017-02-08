@@ -30,7 +30,7 @@ drop.get("ccc") { request in
 }
 
 drop.get("test") { request in
-    return "test個毛啊"
+    return try drop.view.make("test.html")
 }
 
 drop.get("imageIndex") { request in
