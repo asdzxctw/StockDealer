@@ -125,8 +125,8 @@ function singlestock(id) {
         var scaleY = d3.scaleLinear().domain([minFinal, maxFinal]).range([height*0.9, 0]);
 
         var lines = d3.line().x(function(d,i){return i*(width/ln);}).y(function(d){return scaleY(d[id])});
-        canvas.append("path").data([data]).attr("d", lines).attr("stroke", "#A496B5").attr("stroke-width", "2").attr("fill", "none").attr('transform', 'scale(0.95,1)');
-        canvas.selectAll(".point").data(data).enter().append("svg:circle") .attr("stroke", "#A496B5").attr("fill", "#A496B5").attr("cx", function(d, i) {return i*(width/ln)}).attr("cy", function(d) {return scaleY(d[id])}) .attr("r", 3).attr('transform', 'scale(0.95,1)');;
+        canvas.append("path").data([data]).attr("d", lines).attr("stroke", "#A496B5").attr("stroke-width", "2").attr("fill", "none").attr('transform', 'scale(0.9,1)');
+        canvas.selectAll(".point").data(data).enter().append("svg:circle") .attr("stroke", "#A496B5").attr("fill", "#A496B5").attr("cx", function(d, i) {return i*(width/ln)}).attr("cy", function(d) {return scaleY(d[id])}) .attr("r", 3).attr('transform', 'scale(0.9,1)');;
 
     //  Axis  //
         var Dates = [{"quarter": "2016"},{"quarter": " "},{"quarter": " "},
@@ -139,7 +139,7 @@ function singlestock(id) {
         var axisY = d3.axisLeft().scale(scaleY).ticks(10);
         canvas.append('g').call(axisX).attr({'fill':'none', 'stroke':'#000'}); 
         canvas.append('g').call(axisY).attr({'fill':'none', 'stroke':'#000'});
-        var axisYGrid = d3.axisLeft().scale(scaleY).ticks(10).tickFormat("").tickSize(-width*0.9,0);
+        var axisYGrid = d3.axisLeft().scale(scaleY).ticks(10).tickFormat("").tickSize(-width*0.86,0);
         canvas.append('g').call(axisYGrid).attr({'fill':'none'});
         }
     );

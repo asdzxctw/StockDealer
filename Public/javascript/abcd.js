@@ -107,7 +107,7 @@ function clear2(){
     var fff =document.createElement("table")
     fff.setAttribute("id", "table1");
     fff.setAttribute("border", "1");
-    fff.setAttribute("width", "70%");
+    fff.setAttribute("width", "80%");
     var qqq = document.createElement("tr")
     var sss = document.createElement("td")
     sss.innerHTML="股票代號"
@@ -128,7 +128,7 @@ function search(){
     var fff =document.createElement("table")
     fff.setAttribute("id", "table1");
     fff.setAttribute("border", "1");
-    fff.setAttribute("width", "70%");
+    fff.setAttribute("width", "80%");
     ddd.appendChild(fff)
      var outcome = []
      var result1 = []

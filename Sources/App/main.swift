@@ -29,6 +29,10 @@ drop.get("ccc") { request in
     return try drop.view.make("index2.html")
 }
 
+drop.get("a") { request in
+    return try drop.view.make("hellow_world.html")
+}
+
 drop.get("test") { request in
     return try drop.view.make("test.html")
 }

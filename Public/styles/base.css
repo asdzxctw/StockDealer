@@ -1,0 +1,87 @@
+header{
+    background-color: #F8F8F8;
+}
+
+header ul{
+    margin: 0;
+}
+
+header a,
+header li{
+    padding: 1.4rem 0;
+    color: #777;
+    font-weight: bold;
+}
+
+
+section#info-header {
+    background-image: url(../images/landscape.jpg);
+    background-size: cover;
+}
+
+section#info-header .warp-headline{
+    position: relative;
+    padding-top: 25%;
+    padding-bottom: 25%;
+}
+
+section#info-header h1,
+section#info-header h2{
+    color: #FFF;
+}
+
+section#info-header h2{
+    font-size: 1.5rem;
+}
+
+section#members img{
+    margin: 0;
+    width: 80%;
+    height: auto;
+}
+
+section#members h5{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+div#member{
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+section#history{
+    background-color: #FFF0F5;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+section#history img{
+    width: 80%;
+    height:auto;
+    margin: 1.5rem 0;
+}
+
+section#stocktest{
+    background-color: #FFFFCE;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    height: 100rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
