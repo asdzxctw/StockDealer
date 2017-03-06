@@ -2,31 +2,48 @@ header{
     background-color: #F8F8F8;
 }
 
+header nav{
+    opacity:0.8;
+    height: 1rem;
+}
+
 header ul{
-    margin: 0;
+    padding-bottom: 2rem;
 }
 
 header a,
 header li{
-    padding: 1.4rem 0;
     color: #777;
     font-weight: bold;
 }
 
+#nav-menu{
+    margin-right: 2rem;
+}
+
+
+body{
+    padding-top: 5rem;
+}
 
 section#info-header {
-    background-image: url(../images/landscape.jpg);
+    background-image: url(../images/rabbit.jpg);
     background-size: cover;
 }
 
 section#info-header .warp-headline{
     position: relative;
-    padding-top: 25%;
-    padding-bottom: 25%;
+    padding-top: 20%;
+    padding-bottom: 35%;
+}
+
+section#info-header hr{
+    width: 20%;
 }
 
 section#info-header h1,
-section#info-header h2{
+section#info-header h2,
+section#info-header p{
     color: #FFF;
 }
 
@@ -34,14 +51,31 @@ section#info-header h2{
     font-size: 1.5rem;
 }
 
+section#members{
+    background-image: url(../images/sriver.jpg);
+    background-size: cover;
+}
+
 section#members img{
     margin: 0;
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
+section#members h2{
+    padding-top: 5rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+section#members h5,
+section#members h2,
+section#members p{
+    color:#FFF;
+}
+
 section#members h5{
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
@@ -51,23 +85,37 @@ div#member{
     padding-bottom: 5%;
 }
 
-section#history{
-    background-color: #FFF0F5;
-    padding-top: 5%;
-    padding-bottom: 5%;
+section#services{
+    background-image: url(../images/grass.jpg);
+    background-size: cover;
+    //background-color: #D9FBB7;
 }
 
-section#history img{
-    width: 80%;
-    height:auto;
-    margin: 1.5rem 0;
+section#services h2,
+section#services h4,
+section#services li,
+section#services ul,
+section#services p{
+    color: #FFF;
 }
 
 section#stocktest{
     background-color: #FFFFCE;
-    padding-top: 10%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+section#stocktest h2{
     padding-bottom: 5%;
-    height: 100rem;
+}
+
+section#stockexam .section-heading{
+    padding-top:15%;
+}
+
+section#stockexam .input-group{
+    padding-top:15%;
+    padding-bottom: 10%;
 }
 
 

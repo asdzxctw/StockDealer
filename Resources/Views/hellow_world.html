@@ -21,27 +21,37 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <!-- 頂層欄 -->
-            <div class="row">
-                <a class="brand pull-left">YTP</a>
-                <ul class="list-inline list-unstyled pull-right">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="landing_page.html">公司名稱</a>
+                <!-- <a class="btn btn-primary navbar-btn pull-right" href="#" role="button">註冊</a> -->
+            </div>
+            
+            <div id="nav-menu" class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
                     <li><a href="#members" class="about-click">關於我們</a></li>
-                    <li><a href="#history" class="history-click">歷史沿革</a></li>
+                    <li><a href="#services" class="history-click">選股標準</a></li>
                     <li><a href="#stocktest" class="stock-click">股票分析</a></li>
                     <li><a>聯絡我們</a></li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </header>
     
     <section id="info-header">
         <div class="container">
             <!-- 大標題 -->
             <div class="row">
-                <div class="warp-headline">
+                <div class="warp-headline text-center">
                     <h1 class="text-center">a*b=ab 8*7=87</h>
                     <h2 class="text-center">股票分析</h2>
+                    <hr>
+                    <p>你曾經煩惱過該不該下手嗎?
+                    抑或是股票太多，無法兼顧每張股票的狀況，
+                    在不知不覺中，股票變得一文不值。<br>
+                    
+                    現在，快試試看我們精心開發的股票"健檢"系統
+                    快速得知股票目前的狀況！</p>
                 </div>
             </div>
         </div>
@@ -49,6 +59,11 @@
     
     <section id="members">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">製作團隊們</h2>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-4" id="member">
                     <img src="images/member-gua.jpg" class="img-circle">
@@ -59,6 +74,8 @@
                     <img src="images/member-sung.jpg" class="img-circle">
                     <h5 class="text-center">宋奕儒</h5>
                     <p class="text-center">隊員A</p>
+                    <p class="text-center">電子郵件：a20034294@gmail.com</p>
+                    <p class="text-center">μ'sic forever</p>
                 </div>
                 <div class="col-md-4" id="member">
                     <img src="images/member-me.jpg" class="img-circle">
@@ -69,24 +86,96 @@
         </div>
     </section>
     
-    <section id="history">
+    <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="images/member-gua.jpg" class="img-circle">
-                    <img src="images/member-sung.jpg" class="img-circle">
-                    <img src="images/member-me.jpg" class="img-circle">
+                <div class="col-lg-12 text-center">
+                    <br>
+                    <br>
+                    <h2 class="section-heading">選股標準推薦</h2>
+                    <br>
                 </div>
-                <div class="col-md-8">
-                    <p>幹話們......</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="economics">
+                        <img src="images/se-go.jpg" class="img-responsive img-circle" alt="">
+                            <h4>葛拉漢選股</h4>
+                            <p class="content">班傑明．葛拉漢(Benjamin Graham)是華爾街公認的證券分析之父，1914年畢業於哥倫比亞大學，
+                            進入證券經紀商紐伯格公司(Newbuger Henderson&amp;Loeb)擔任統計分析的工作，
+                            1923年離職後，創立第一個私人基金-葛蘭赫公司，初試啼聲操作績效即非常優異，
+                            1925年因合夥人意見不合而清算解散，1926年和友人合資設立葛拉漢聯合投資帳戶(Joint Account)，
+                            至1929年初資金規模由45萬美元成長至250萬美元，一夕之間，葛拉漢之名成為華爾街的寵兒，
+                            1934年和陶德(David L. Dodd)合著「有價證券分析」(Security Analysis)一書，
+                            成為證券分析的開山始祖。
+                            <br>
+                            </p><ul>葛拉漢標準：
+                                <li>淨利平均成長一年及三年平均均大於5％</li>
+                                <li>股東權益報酬率一年三年及五年平均均大於5％</li>
+                                <li>流動比率至少150％</li>
+                                <li>本益比小於20</li>
+                                <li>負債比率小於50％</li>
+                            </ul>
+                            <p></p>
+                            </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="economics">
+                        <img src="images/se-buffet.jpg" class="img-responsive img-circle" alt="">
+                            <h4>巴菲特選股</h4>
+                            <p class="content">華倫·愛德華·巴菲特（英語：Warren Edward Buffett，1930年8月30日－），出生於美國內布拉斯加州的奧馬哈，
+                            美國投資者、企業家、及慈善家，世界上最成功的投資者。巴菲特是波克夏·海瑟威公司的最大股東，
+                            董事長及執行長。他在2008年全球富豪排名第一，2015年第三。
+                            巴菲特常被稱為「奧馬哈的神諭」（The Oracle⋯⋯ of Omaha），並以長期的價值投資與簡樸生活聞名。
+                            他也是著名的慈善家，並承諾捐出99%的財富，主要交由蓋茲夫婦基金會來運用。
+                            <br>
+                            <br>
+                            </p><ul>巴菲特標準：
+                                <li>近5年中每年的EPS都大於1元</li>
+                                <li>近12個月每股營收大於1.5元</li>
+                                <li>股價淨值比小於1.5</li>
+                                <li>近4季股東權益報酬率大於5%</li>
+                                <li>稅後淨利至少5000萬美元</li>
+                            </ul>
+                            <p></p>
+                            </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="economics">
+                        <img src="images/se-mi.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Michael Sivy選股</h4>
+                            <p class="content">麥克．喜偉(Michael Sivy)是美國知名的投資策略分析師，過去15年來，對全球股市動向的預測績效卓著，
+                            曾在1994年華爾街空頭氣氛迷漫時，他即公開表示1995年是美國股市重要的投資年；
+                            果然1995年至1999年美國經歷一長段漲升期；1999年他更預言20世紀末是美國股市漲升階段的另一次高峰，
+                            果不其然NASDAQ指數在世紀末的2000年3-5月下挫達4成；麥克．喜偉也是美國著名財經雜誌(Money Magazine)雜誌的常態性專欄作家，
+                            號稱錢雜誌首席策略分析大師，1997年出版暢銷書【投資金律】一書，
+                            對不同類型投資者的選股準則有精闢的見解。
+                            <br>
+                            </p><ul>Michael Sivy標準：
+                                <li>本益比小於20</li>
+                                <li>負債比率小於60％</li>
+                                <li>股東權益報酬率一年、三年及五年平均均大於15％</li>
+                                <li>營收成長率一年、三年及五年平均均大於20％</li>
+                                <li>淨利成長率一年、三年及五年平均均大於20％</li>
+                            </ul>
+                            <p></p>
+                            </div>
                 </div>
             </div>
         </div>
+        <br><br><br><br><br>
+        
     </section>
+    
     
     <section id="stocktest">
         <div class="container">
-            <div class="row marginbottom10">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-heading">股票快篩</h2>
+                </div>
+            </div>
+            <div class="row">
                 <form name="form0" id="form0" method="GET" class="marginbottom10">
                     <div class="col-md-3 col-md-offset-2 text-center">
                         Start Year
@@ -156,6 +245,26 @@
                 </table>
             </div>
             
+        </div>
+    </section>
+    
+    <section id="stockexam">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-heading">股票健檢</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="input-group">
+                        <input type="text" class="form-control"     placeholder="輸入入股票代碼">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button">開始分析</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     

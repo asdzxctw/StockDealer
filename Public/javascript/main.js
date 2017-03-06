@@ -3,7 +3,7 @@ $('.about-click').click(function(){
 });
 
 $('.history-click').click(function(){
-    $('html,body').animate({scrollTop:$('#history').offset().top},1000);
+    $('html,body').animate({scrollTop:$('#services').offset().top},1000);
 });
 
 $('.stock-click').click(function(){
