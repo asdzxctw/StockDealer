@@ -3,6 +3,8 @@
     var dataPath = "https://cocoflyliu.github.io/stock_crawler/data/";
     var f1 = document.getElementById("form1")
     var namePath = dataPath+"name"+csv
+    var datalist = ["EPS","NATPM","ROE","IT","DY","NVPS","OP","OPMGR","OPM","LR","NIGR","DR","ATNI","PS","PE","PBR"]
+    var dataResult = [];
 
     var testrequest = {target:f1.target1.value, comparison:f1.comparison1.value , data:f1.text1.value, searchable:f1.checkValidity()}
     document.getElementById("form1").target1.option
@@ -14,8 +16,10 @@
     function getURL(request){
         var filename = request.target
         var dataURL = dataPath+filename+csv;
+        //alert(dataURL);
         return dataURL
     }
+
     function display(dsp){
         if(dsp=="EPS"){
             var res = "每股盈餘(元)"
@@ -102,40 +106,85 @@ function sentID(id){
 };
 function clear2(){
     document.getElementById("form1").reset();
-    var ddd =  document.getElementById("resultHere");
-    ddd.removeChild(document.getElementById("table1"))
-    var fff =document.createElement("table")
-    fff.setAttribute("id", "table1");
-    fff.setAttribute("border", "1");
-    fff.setAttribute("width", "80%");
-    var qqq = document.createElement("tr")
-    var sss = document.createElement("td")
-    sss.innerHTML="股票代號"
-    var mmm = document.createElement("td")
-    mmm.innerHTML="公司名稱"
-    fff.appendChild(sss)
-    fff.appendChild(mmm)
+    var ddd =  document.getElementById("table1");
+    ddd.removeChild(document.getElementById("tbody1"))
+    var fff =document.createElement("tbody")
+    fff.setAttribute("id", "tbody1");
+//    fff.setAttribute("border", "1");
+//    fff.setAttribute("width", "100%");
+//    var qqq = document.createElement("tr")
+//    var sss = document.createElement("td")
+//    sss.innerHTML="股票代號"
+//    var mmm = document.createElement("td")
+//    mmm.innerHTML="公司名稱"
+//    fff.appendChild(sss)
+//    fff.appendChild(mmm)
     ddd.appendChild(fff)
 
 };
+
+function getData(){
+    tech = "https://cocoflyliu.github.io/stock_crawler/data/"
+    var ss = document.getElementById("stockIndex")
+    var stockIndex = ss.value
+    var a = []
+    
+    var stock_i = 0;
+    
+    path = tech + "EPS" + ".txt";
+    
+    
+    d3.csv(path,function(data){
+       
+       for(i=0;i<data.length;i++){
+        if(data[i]["index"] == stockIndex){
+         stock_i = i;
+         break;
+        }
+       }
+       
+       }
+    )
+    
+    for(i=0;i<datalist.length;i++){
+        
+        path = tech + datalist[i] + ".txt";
+        var typetype = datalist[i];
+        //alert(datalist[i]);
+        
+        d3.csv( path,function(data){
+               
+               var x = data[stock_i];
+               var resultxx = document.getElementById("resultx");
+               var kkk = document.createElement("p");
+               kkk.innerHTML=x["2012Q1"];
+               resultxx.appendChild(kkk);
+               dataResult.push(x["2012Q1"]);
+               if(dataResult.length == 16){
+               console.log(dataResult);
+               }
+        })
+    }
+    
+}
 
 function search(){
     testrequest = {target:f1.target1.value, comparison:f1.comparison1.value , data:f1.text1.value, searchable:f1.text1.value!=""}
     var startYear = parseInt(document.getElementById("startyear").value) + 2011
     var endYear = parseInt( document.getElementById("endyear").value) + 2011
-    var ddd =  document.getElementById("resultHere");
-    ddd.removeChild(document.getElementById("table1"))
-    var fff =document.createElement("table")
-    fff.setAttribute("id", "table1");
-    fff.setAttribute("border", "1");
-    fff.setAttribute("width", "80%");
+    var ddd =  document.getElementById("table1");
+    ddd.removeChild(document.getElementById("tbody1"))
+    var fff =document.createElement("tbody")
+    fff.setAttribute("id", "tbody1");
+//    fff.setAttribute("border", "1");
+//    fff.setAttribute("width", "100%");
     ddd.appendChild(fff)
      var outcome = []
      var result1 = []
      if (testrequest.searchable==true){
      //result1   
     d3.csv( getURL(testrequest), 
-
+    
     function first(data1){
     console.log(data1);
     var k ;
@@ -192,21 +241,25 @@ console.log(result1)
            
            console.log(outcome)
            var firstRow = document.createElement("tr")
-           var stockNumber = document.createElement("td")
+           var stockNumber = document.createElement("th")
            stockNumber.innerHTML = "股票代號"
-           var stockName = document.createElement("td")
+           var stockName = document.createElement("th")
            stockName.innerHTML = "公司名稱"
-           var dataValue = document.createElement("td")
+           var dataValue = document.createElement("th")
            dataValue.innerHTML = display(testrequest["target"])
            firstRow.appendChild(stockNumber)
            firstRow.appendChild(stockName)
            firstRow.appendChild(dataValue)
-           var title = document.getElementById("table1")
+           var title = document.getElementById("thead1")
+           title.innerHTML = ""
            title.appendChild(firstRow)
            
            for(m=0;m<outcome.length;m++){
             var y =outcome[m]
             var row = document.createElement("tr")
+            //row.style.animation-delay = String(m*0.1)+"s"
+            //row.setAttribute("class", "wow fadeInRightBig")
+            //row.setAttribute("data-wow-delay", String(m*0.1)+"s")
             row.setAttribute("id", "s"+y["id"])
             var num = document.createElement("td")
             var button = document.createElement("button")
@@ -222,8 +275,9 @@ console.log(result1)
             row.appendChild(num)
             row.appendChild(name)
             row.appendChild(data)
-            var tit = document.getElementById("table1")
-            tit.appendChild(row)
+            var tit = document.getElementById("tbody1")
+           
+            setTimeout(tit.appendChild(row),100*m)
            
            }
 

@@ -26,6 +26,7 @@ body{
     padding-top: 5rem;
 }
 
+/* 第一頁 */
 section#info-header {
     background-image: url(../images/rabbit.jpg);
     background-size: cover;
@@ -41,8 +42,16 @@ section#info-header hr{
     width: 20%;
 }
 
+section#info-header h1{
+    font-size: 5rem;
+}
+
 section#info-header h1,
-section#info-header h2,
+section#info-header h2{
+    color: #000000;
+    font-family: 'Century Gothic'
+}
+
 section#info-header p{
     color: #FFF;
 }
@@ -51,6 +60,7 @@ section#info-header h2{
     font-size: 1.5rem;
 }
 
+/* 製作團隊 */
 section#members{
     background-image: url(../images/sriver.jpg);
     background-size: cover;
@@ -64,7 +74,7 @@ section#members img{
 
 section#members h2{
     padding-top: 5rem;
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: bold;
 }
 
@@ -81,10 +91,11 @@ section#members h5{
 
 div#member{
     position: relative;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 10%;
+    padding-bottom: 15%;
 }
 
+/* 建議 */
 section#services{
     background-image: url(../images/grass.jpg);
     background-size: cover;
@@ -99,6 +110,7 @@ section#services p{
     color: #FFF;
 }
 
+/* 股票草篩 */
 section#stocktest{
     background-color: #FFFFCE;
     padding-top: 5%;
@@ -109,16 +121,86 @@ section#stocktest h2{
     padding-bottom: 5%;
 }
 
+section#stocktest select{
+    width: 15rem;
+    display: inline;
+}
+
+section#stocktest select{
+    width: 15rem;
+    display: inline;
+}
+
+section#stocktest .button1{
+    width: 100%;
+}
+
+section#stocktest tr{
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        color: #FFFFCE;
+        //transform: translateX(100%);
+    }
+    
+    to {
+        
+        //transform: translateX(0rem);
+    }
+}
+
+
+/* 股票健檢 */
 section#stockexam .section-heading{
-    padding-top:15%;
+    padding-top:10%;
 }
 
 section#stockexam .input-group{
-    padding-top:15%;
-    padding-bottom: 10%;
+    padding-top:5%;
+    padding-bottom: 15%;
 }
 
+/* 頁尾 */
+footer {
+    background-color: #191919;
+    color: #ADADAD;
+    margin-top: 3em;
+}
 
+footer ul,
+footer img {
+    margin-top: 5em;
+    font-weight: bold;
+}
+
+footer address {
+    margin-top: 5em;
+    margin-bottom: 5em;
+    color: #5A5A5A;
+}
+
+footer ul {
+    margin-bottom: 5em;
+}
+
+footer address strong {
+    color: #ADADAD;
+    display: block;
+    padding-bottom: 0.62em;
+}
+
+footer a {
+    font-weight: 300;
+    color: #5A5A5A;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #FFF;
+}
 
 
 

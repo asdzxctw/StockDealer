@@ -7,6 +7,12 @@
         
     <title>xx少年圖靈計畫xx</title>
     
+    <link rel="stylesheet" href="styles/animate.css">
+    <script src="javascript/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/base.css">
         
@@ -23,16 +29,17 @@
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
-                <a class="navbar-brand" href="landing_page.html">公司名稱</a>
+                <a class="navbar-brand">YTP</a>
                 <!-- <a class="btn btn-primary navbar-btn pull-right" href="#" role="button">註冊</a> -->
             </div>
             
             <div id="nav-menu" class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="#members" class="about-click">關於我們</a></li>
-                    <li><a href="#services" class="history-click">選股標準</a></li>
-                    <li><a href="#stocktest" class="stock-click">股票分析</a></li>
-                    <li><a>聯絡我們</a></li>
+                    <li><a class="home-click">回到首頁</a></li>
+                    <li><a class="about-click">關於我們</a></li>
+                    <li><a class="history-click">選股標準</a></li>
+                    <li><a class="stock-click">股票分析</a></li>
+                    <li><a class="commut-click">聯絡我們</a></li>
                 </ul>
             </div>
         </nav>
@@ -43,7 +50,7 @@
             <!-- 大標題 -->
             <div class="row">
                 <div class="warp-headline text-center">
-                    <h1 class="text-center">a*b=ab 8*7=87</h>
+                    <h1 class="text-center wow zoomIn">a*b=ab 8*7=87</h>
                     <h2 class="text-center">股票分析</h2>
                     <hr>
                     <p>你曾經煩惱過該不該下手嗎?
@@ -61,26 +68,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">製作團隊們</h2>
+                    <h2 class="section-heading wow rubberBand" data-wow-delay="0.3s">製作團隊們</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4" id="member">
-                    <img src="images/member-gua.jpg" class="img-circle">
-                    <h5 class="text-center">虞樸</h5>
-                    <p class="text-center">隊長</p>
+                    <img src="images/member-gua.jpg" class="img-circle wow fadeInLeft" data-wow-delay="1s">
+                    <h5 class="text-center wow zoomIn">虞樸</h5>
+                    <p class="text-center wow zoomIn">隊長</p>
                 </div>
                 <div class="col-md-4" id="member">
-                    <img src="images/member-sung.jpg" class="img-circle">
-                    <h5 class="text-center">宋奕儒</h5>
-                    <p class="text-center">隊員A</p>
-                    <p class="text-center">電子郵件：a20034294@gmail.com</p>
-                    <p class="text-center">μ'sic forever</p>
+                    <img src="images/member-sung.jpg" class="img-circle wow fadeInLeft" data-wow-delay="1s">
+                    <h5 class="text-center wow zoomIn">宋奕儒</h5>
+                    <p class="text-center wow zoomIn">隊員A</p>
+                    <p class="text-center wow slideInUp">電子郵件：a20034294@gmail.com</p>
+                    <p class="text-center wow slideInUp">μ'sic forever</p>
                 </div>
                 <div class="col-md-4" id="member">
-                    <img src="images/member-me.jpg" class="img-circle">
-                    <h5 class="text-center">陳奕嘉</h5>
-                    <p class="text-center">隊員B</p>
+                    <img src="images/member-me.jpg" class="img-circle wow fadeInLeft" data-wow-delay="1s">
+                    <h5 class="text-center wow zoomIn">陳奕嘉</h5>
+                    <p class="text-center wow zoomIn">隊員B</p>
                 </div>
             </div>
         </div>
@@ -92,16 +99,16 @@
                 <div class="col-lg-12 text-center">
                     <br>
                     <br>
-                    <h2 class="section-heading">選股標準推薦</h2>
+                    <h2 class="section-heading wow flip" data-wow-delay="0.3s">選股標準推薦</h2>
                     <br>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="economics">
-                        <img src="images/se-go.jpg" class="img-responsive img-circle" alt="">
-                            <h4>葛拉漢選股</h4>
-                            <p class="content">班傑明．葛拉漢(Benjamin Graham)是華爾街公認的證券分析之父，1914年畢業於哥倫比亞大學，
+                        <img src="images/se-go.jpg" class="img-responsive img-circle wow flipInX" data-wow-delay="1s" alt="">
+                            <h4 class="wow bounceInRight">葛拉漢選股</h4>
+                            <p class="content wow fadeInLeft">班傑明．葛拉漢(Benjamin Graham)是華爾街公認的證券分析之父，1914年畢業於哥倫比亞大學，
                             進入證券經紀商紐伯格公司(Newbuger Henderson&amp;Loeb)擔任統計分析的工作，
                             1923年離職後，創立第一個私人基金-葛蘭赫公司，初試啼聲操作績效即非常優異，
                             1925年因合夥人意見不合而清算解散，1926年和友人合資設立葛拉漢聯合投資帳戶(Joint Account)，
@@ -121,9 +128,9 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="economics">
-                        <img src="images/se-buffet.jpg" class="img-responsive img-circle" alt="">
-                            <h4>巴菲特選股</h4>
-                            <p class="content">華倫·愛德華·巴菲特（英語：Warren Edward Buffett，1930年8月30日－），出生於美國內布拉斯加州的奧馬哈，
+                        <img src="images/se-buffet.jpg" class="img-responsive img-circle wow flipInX" data-wow-delay="1s" alt="">
+                            <h4 class="wow bounceInRight">巴菲特選股</h4>
+                            <p class="content wow fadeInLeft">華倫·愛德華·巴菲特（英語：Warren Edward Buffett，1930年8月30日－），出生於美國內布拉斯加州的奧馬哈，
                             美國投資者、企業家、及慈善家，世界上最成功的投資者。巴菲特是波克夏·海瑟威公司的最大股東，
                             董事長及執行長。他在2008年全球富豪排名第一，2015年第三。
                             巴菲特常被稱為「奧馬哈的神諭」（The Oracle⋯⋯ of Omaha），並以長期的價值投資與簡樸生活聞名。
@@ -142,9 +149,9 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="economics">
-                        <img src="images/se-mi.jpg" class="img-responsive img-circle" alt="">
-                            <h4>Michael Sivy選股</h4>
-                            <p class="content">麥克．喜偉(Michael Sivy)是美國知名的投資策略分析師，過去15年來，對全球股市動向的預測績效卓著，
+                        <img src="images/se-mi.jpg" class="img-responsive img-circle wow flipInX" data-wow-delay="1s" alt="">
+                            <h4 class="wow bounceInRight">Michael Sivy選股</h4>
+                            <p class="content wow fadeInLeft">麥克．喜偉(Michael Sivy)是美國知名的投資策略分析師，過去15年來，對全球股市動向的預測績效卓著，
                             曾在1994年華爾街空頭氣氛迷漫時，他即公開表示1995年是美國股市重要的投資年；
                             果然1995年至1999年美國經歷一長段漲升期；1999年他更預言20世紀末是美國股市漲升階段的另一次高峰，
                             果不其然NASDAQ指數在世紀末的2000年3-5月下挫達4成；麥克．喜偉也是美國著名財經雜誌(Money Magazine)雜誌的常態性專欄作家，
@@ -172,14 +179,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2 class="section-heading">股票快篩</h2>
+                    <h2 class="section-heading wow flipInY" data-wow-delay="0.5s">股票快篩</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row wow fadeInDown" data-wow-delay="1s">
                 <form name="form0" id="form0" method="GET" class="marginbottom10">
                     <div class="col-md-3 col-md-offset-2 text-center">
                         Start Year
-                        <select id="startyear" class="select-style1">
+                        <select id="startyear" class="form-control">
                             <option value="1">2012</option>
                             <option value="2">2013</option>
                             <option value="3">2014</option>
@@ -189,7 +196,7 @@
                     </div>
                     <div class="col-md-3 text-center">
                         End Year
-                        <select id="endyear" class="select-style1">
+                        <select id="endyear" class="form-control">
                             <option value="1">2012</option>
                             <option value="2">2013</option>
                             <option value="3">2014</option>
@@ -198,11 +205,13 @@
                         </select>
                     </div>
                 </form>
+                <p><br><br></p>
             </div>
-            <div class="row">
+            <div class="row wow fadeInDown" data-wow-delay="1.5s">
                 <div class="col-md-9 text-center">
                     <form name="form1" id="form1" method="GET" class="marginbottom10">
-                        <select id="target1" name="target1" class="select-style1">
+                        <input type="checkbox" class="switch">
+                        <select id="target1" name="target1" class="form-control">
                             <option value="EPS">每股盈餘(元)</option>
                             <option value="NATPM">稅後淨利率(%)</option>
                             <option value="ROE">股東權益報酬率(%)</option>
@@ -221,27 +230,33 @@
                             <option value="PBR">股價淨值比</option>
                             
                         </select>
-                        <select id="comparison1" class="select-style1">
+                        <select id="comparison1" class="form-control">
                             <option value="1">&gt;</option>
                             <option value="2">&lt;</option>
                             
                         </select>
                         <input id="text1" type="text" name="data1" class="textbox1">
-                            </form>
+                    </form>
+                    
                 </div>
                 
                 <div class="col-md-3">
-                    <input type="button" value="search" onclick="search()" class="button1 marginbottom30" id="search">
-                        <input type="button" value="clear" class="button1" id="clear" onclick="clear2()">
-                            </div>
+                    <input type="button" value="search" onclick="search()" class="button1 btn-success btn-lg" id="search"><br>
+                    <input type="button" value="clear" class="button1 btn-warning btn-lg" id="clear" onclick="clear2()">
+                </div>
                 
             </div>
-            <div class="row" id="resultHere">
-                <table id="table1" border="1" width="80%">
-                    　<tr>
-                        　<td>股票代號</td>
-                        　<td>公司名稱</td>
-                        　</tr>
+            <div class="row" id="resultHere" data-wow-delay="2s">
+                <table id="table1" border="1" width="100%" class="table table-bordered">
+                    <thead id="thead1">
+                        <tr>
+                            <th>股票代號</th>
+                            <th>公司名稱</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody1">
+                        
+                    </tbody>
                 </table>
             </div>
             
@@ -258,15 +273,56 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="input-group">
-                        <input type="text" class="form-control"     placeholder="輸入入股票代碼">
+                        <input id="stockIndex" type="text" class="form-control"     placeholder="輸入入股票代碼">
                         <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">開始分析</button>
+                            <button class="btn btn-success" type="button" onclick="getData()">開始分析</button>
                         </span>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-8 text-center">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div id="resultx">
+                    </div>
+                </div>
+            </div>
+            <div id="qqq">
+                
+            </div>
         </div>
     </section>
+    
+    <footer id="communicate">
+        <div class="container">
+            <div class="col-sm-2">
+                <img src="imgs/logo.png" class="img-responsive">
+                    </div>
+            <div class="col-sm-6">
+                <ul class="list-inline list-unstyled text-center">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">小圓麵包</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">聯絡資訊</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <address>
+                    <strong>圖靈股份有限公司</strong>
+                    台北市中正區<br>
+                    成功高級中學<br>
+                    <abbr title="Phone">TEL：</abbr> (02) 1234-5678
+                </address>
+            </div>
+        </div>
+    </footer>
     
     <script src="javascript/jquery-3.1.1.min.js"></script>
     <script src="javascript/bootstrap.js"></script>
