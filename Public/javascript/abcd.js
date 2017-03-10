@@ -289,8 +289,13 @@ function getSharpe(){
            
            var stareline = document.getElementById("stare-line");
            stareline.innerHTML = ""
-           for(i=0;i<stares;i++){
-           stareline.innerHTML += "<li><img src=\"images/stare.png\" class=\"img-responsive inline-block animated flip \"></li>"
+           for(i=0;i<5;i++){
+              if(i<stares){
+               stareline.innerHTML += "<li><img src=\"images/stare.png\" class=\"img-responsive inline-block animated flip \"></li>"
+                 }else{
+                    stareline.innerHTML += "<li><img src=\"images/stare-white.png\" class=\"img-responsive inline-block animated flip \"></li>"
+                }
+           
            }
            
            
