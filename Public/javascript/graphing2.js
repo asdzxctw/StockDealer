@@ -15,14 +15,14 @@ function insertAfter(newElement, targetElement){
 
 
 //  Single Stock    //
-function singlestock(id) {
+function singlestock(id,filename) {
     var docwidth = $(document).width();
     var width = docwidth*0.7;
     var height = 450;
     var canvasTr = document.createElement('tr');
     var canvasTd = document.createElement('td');
     canvasTd.id = id + "div";
-    canvasTd.setAttribute("colspan", 3)
+    canvasTd.setAttribute("colspan", document.getElementById(id).childNodes.length)
     canvasTr.appendChild(canvasTd)
     insertAfter(canvasTr, document.getElementById(id))
     
@@ -32,7 +32,7 @@ function singlestock(id) {
     // var canvas = d3.select(".SsingleCanvas").append("svg").attr("class", "Ssingle").attr("width", width).attr("height", height*0.8);
 
     //  Append Data Type //  
-    var filename = testrequest.target;
+    //var filename = testrequest.target;
     var type = document.createElement('div');
     type.id="p" + id;
     type.setAttribute("align", "center")
@@ -85,7 +85,7 @@ function singlestock(id) {
          else if(filename=="DR"){
             var res = "負債比率(%)"
             document.getElementById("p" + id).innerHTML = res;
-        }        
+        }
          else if(filename=="ATNI"){
             var res = "稅後淨利(千元)"
             document.getElementById("p" + id).innerHTML = res;

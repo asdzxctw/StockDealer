@@ -11,10 +11,13 @@ header ul{
     padding-bottom: 2rem;
 }
 
+header li{
+    font-weight: bold;
+}
+
 header a,
 header li{
     color: #777;
-    font-weight: bold;
 }
 
 #nav-menu{
@@ -72,6 +75,11 @@ section#members img{
     height: auto;
 }
 
+section#members img:hover{
+/*    -webkit-filter:blur(0.8rem) brightness(60%);*/
+/*    transition: 0.8s;*/
+}
+
 section#members h2{
     padding-top: 5rem;
     font-size: 5rem;
@@ -121,6 +129,11 @@ section#stocktest h2{
     padding-bottom: 5%;
 }
 
+.table td,
+.table th{
+    text-align: center;
+}
+
 section#stocktest select{
     width: 15rem;
     display: inline;
@@ -133,12 +146,22 @@ section#stocktest select{
 
 section#stocktest .button1{
     width: 100%;
+    margin: 1rem 0;
 }
 
-section#stocktest tr{
+div#resulthere{
+    padding-top: 5%;
+}
+
+section#stocktest table{
     animation-duration: 3s;
     animation-name: slidein;
 }
+
+/*section#stocktest td{*/
+/*    animation-duration: 3s;*/
+/*    animation-name: slidein;*/
+/*}*/
 
 @keyframes slidein {
     from {
@@ -160,20 +183,31 @@ section#stockexam .section-heading{
 
 section#stockexam .input-group{
     padding-top:5%;
-    padding-bottom: 15%;
+    padding-bottom: 5%;
+}
+
+div#leftResult{
+    background-color: #F0BBFF;
+}
+
+div#rightResult{
+    background-color: #00FFFF;
+}
+
+div#rightResult img{
+    height: 5rem;
 }
 
 /* 頁尾 */
 footer {
-    background-color: #191919;
-    color: #ADADAD;
+    background-color: #FFF5E7;
+    //color: #ADADAD;
     margin-top: 3em;
 }
 
 footer ul,
 footer img {
-    margin-top: 5em;
-    font-weight: bold;
+    margin-top: 3em;
 }
 
 footer address {
@@ -183,7 +217,9 @@ footer address {
 }
 
 footer ul {
+    margin-top: 5em;
     margin-bottom: 5em;
+    font-weight: bold;
 }
 
 footer address strong {

@@ -18,3 +18,6 @@ $('.commut-click').click(function(){
     $('html,body').animate({scrollTop:$('#communicate').offset().top},1500);
 });
 
+$('.health-click').click(function(){
+    $('html,body').animate({scrollTop:$('#stockexam').offset().top},1500);
+});

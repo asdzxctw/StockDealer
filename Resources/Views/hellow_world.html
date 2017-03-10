@@ -15,9 +15,10 @@
     
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/base.css">
-        
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
         
     <!--[if lt IE 9]>
          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -29,7 +30,8 @@
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
-                <a class="navbar-brand">YTP</a>
+                <img class="navbar-brand" src="images/logo-line.png">
+                <a class="navbar-brand">簡單✩快速✩直覺</a>
                 <!-- <a class="btn btn-primary navbar-btn pull-right" href="#" role="button">註冊</a> -->
             </div>
             
@@ -38,7 +40,8 @@
                     <li><a class="home-click">回到首頁</a></li>
                     <li><a class="about-click">關於我們</a></li>
                     <li><a class="history-click">選股標準</a></li>
-                    <li><a class="stock-click">股票分析</a></li>
+                    <li><a class="stock-click">股票快篩</a></li>
+                    <li><a class="health-click">股票健檢</a></li>
                     <li><a class="commut-click">聯絡我們</a></li>
                 </ul>
             </div>
@@ -111,9 +114,8 @@
                             <p class="content wow fadeInLeft">班傑明．葛拉漢(Benjamin Graham)是華爾街公認的證券分析之父，1914年畢業於哥倫比亞大學，
                             進入證券經紀商紐伯格公司(Newbuger Henderson&amp;Loeb)擔任統計分析的工作，
                             1923年離職後，創立第一個私人基金-葛蘭赫公司，初試啼聲操作績效即非常優異，
-                            1925年因合夥人意見不合而清算解散，1926年和友人合資設立葛拉漢聯合投資帳戶(Joint Account)，
                             至1929年初資金規模由45萬美元成長至250萬美元，一夕之間，葛拉漢之名成為華爾街的寵兒，
-                            1934年和陶德(David L. Dodd)合著「有價證券分析」(Security Analysis)一書，
+                            1934年和陶德合著「有價證券分析」(Security Analysis)一書，
                             成為證券分析的開山始祖。
                             <br>
                             </p><ul>葛拉漢標準：
@@ -130,12 +132,11 @@
                     <div class="economics">
                         <img src="images/se-buffet.jpg" class="img-responsive img-circle wow flipInX" data-wow-delay="1s" alt="">
                             <h4 class="wow bounceInRight">巴菲特選股</h4>
-                            <p class="content wow fadeInLeft">華倫·愛德華·巴菲特（英語：Warren Edward Buffett，1930年8月30日－），出生於美國內布拉斯加州的奧馬哈，
+                            <p class="content wow fadeInLeft">華倫·愛德華·巴菲特（Warren Edward Buffett），出生於美國內布拉斯加州的奧馬哈，
                             美國投資者、企業家、及慈善家，世界上最成功的投資者。巴菲特是波克夏·海瑟威公司的最大股東，
                             董事長及執行長。他在2008年全球富豪排名第一，2015年第三。
                             巴菲特常被稱為「奧馬哈的神諭」（The Oracle⋯⋯ of Omaha），並以長期的價值投資與簡樸生活聞名。
                             他也是著名的慈善家，並承諾捐出99%的財富，主要交由蓋茲夫婦基金會來運用。
-                            <br>
                             <br>
                             </p><ul>巴菲特標準：
                                 <li>近5年中每年的EPS都大於1元</li>
@@ -154,8 +155,7 @@
                             <p class="content wow fadeInLeft">麥克．喜偉(Michael Sivy)是美國知名的投資策略分析師，過去15年來，對全球股市動向的預測績效卓著，
                             曾在1994年華爾街空頭氣氛迷漫時，他即公開表示1995年是美國股市重要的投資年；
                             果然1995年至1999年美國經歷一長段漲升期；1999年他更預言20世紀末是美國股市漲升階段的另一次高峰，
-                            果不其然NASDAQ指數在世紀末的2000年3-5月下挫達4成；麥克．喜偉也是美國著名財經雜誌(Money Magazine)雜誌的常態性專欄作家，
-                            號稱錢雜誌首席策略分析大師，1997年出版暢銷書【投資金律】一書，
+                            果不其然NASDAQ指數在世紀末的2000年3-5月下挫達4成，1997年出版暢銷書【投資金律】一書，
                             對不同類型投資者的選股準則有精闢的見解。
                             <br>
                             </p><ul>Michael Sivy標準：
@@ -201,7 +201,7 @@
                             <option value="2">2013</option>
                             <option value="3">2014</option>
                             <option value="4">2015</option>
-                            <option value="5">2016</option>
+                            <option value="5" SELECTED>2016</option>
                         </select>
                     </div>
                 </form>
@@ -210,7 +210,6 @@
             <div class="row wow fadeInDown" data-wow-delay="1.5s">
                 <div class="col-md-9 text-center">
                     <form name="form1" id="form1" method="GET" class="marginbottom10">
-                        <input type="checkbox" class="switch">
                         <select id="target1" name="target1" class="form-control">
                             <option value="EPS">每股盈餘(元)</option>
                             <option value="NATPM">稅後淨利率(%)</option>
@@ -237,17 +236,97 @@
                         </select>
                         <input id="text1" type="text" name="data1" class="textbox1">
                     </form>
-                    
+                    <form name="form2" id="form2" method="GET" class="marginbottom10">
+                        <select id="target2" name="target2" class="form-control">
+                            <option value="EPS">每股盈餘(元)</option>
+                            <option value="NATPM">稅後淨利率(%)</option>
+                            <option value="ROE">股東權益報酬率(%)</option>
+                            <option value="IT">存貨周轉率(%)</option>
+                            <option value="DY">殖利率(%)</option>
+                            <option value="NVPS">每股淨值(元)</option>
+                            <option value="OP">營業毛利率(%)</option>
+                            <option value="OPMGR">營收成長率(%)</option>
+                            <option value="OPM">營業利益率(%)</option>
+                            <option value="LR">流動比率(%)</option>
+                            <option value="NIGR">稅後淨利成長率(%)</option>
+                            <option value="DR">負債比率(%)</option>
+                            <option value="ATNI">稅後淨利(千元)</option>
+                            <option value="PS">每股營業額(元)</option>
+                            <option value="PE">本益比(以月計而且僅3,6,9,12)</option>
+                            <option value="PBR">股價淨值比</option>
+                            
+                        </select>
+                        <select id="comparison2" class="form-control">
+                            <option value="1">&gt;</option>
+                            <option value="2">&lt;</option>
+                            
+                        </select>
+                        <input id="text2" type="text" name="data2" class="textbox2">
+                    </form>
+                    <form name="form3" id="form3" method="GET" class="marginbottom10">
+                        <select id="target3" name="target3" class="form-control">
+                            <option value="EPS">每股盈餘(元)</option>
+                            <option value="NATPM">稅後淨利率(%)</option>
+                            <option value="ROE">股東權益報酬率(%)</option>
+                            <option value="IT">存貨周轉率(%)</option>
+                            <option value="DY">殖利率(%)</option>
+                            <option value="NVPS">每股淨值(元)</option>
+                            <option value="OP">營業毛利率(%)</option>
+                            <option value="OPMGR">營收成長率(%)</option>
+                            <option value="OPM">營業利益率(%)</option>
+                            <option value="LR">流動比率(%)</option>
+                            <option value="NIGR">稅後淨利成長率(%)</option>
+                            <option value="DR">負債比率(%)</option>
+                            <option value="ATNI">稅後淨利(千元)</option>
+                            <option value="PS">每股營業額(元)</option>
+                            <option value="PE">本益比(以月計而且僅3,6,9,12)</option>
+                            <option value="PBR">股價淨值比</option>
+                            
+                        </select>
+                        <select id="comparison3" class="form-control">
+                            <option value="1">&gt;</option>
+                            <option value="2">&lt;</option>
+                            
+                        </select>
+                        <input id="text3" type="text" name="data3" class="textbox3">
+                            </form>
+                    <form name="form4" id="form4" method="GET" class="marginbottom10">
+                        <select id="target4" name="target4" class="form-control">
+                            <option value="EPS">每股盈餘(元)</option>
+                            <option value="NATPM">稅後淨利率(%)</option>
+                            <option value="ROE">股東權益報酬率(%)</option>
+                            <option value="IT">存貨周轉率(%)</option>
+                            <option value="DY">殖利率(%)</option>
+                            <option value="NVPS">每股淨值(元)</option>
+                            <option value="OP">營業毛利率(%)</option>
+                            <option value="OPMGR">營收成長率(%)</option>
+                            <option value="OPM">營業利益率(%)</option>
+                            <option value="LR">流動比率(%)</option>
+                            <option value="NIGR">稅後淨利成長率(%)</option>
+                            <option value="DR">負債比率(%)</option>
+                            <option value="ATNI">稅後淨利(千元)</option>
+                            <option value="PS">每股營業額(元)</option>
+                            <option value="PE">本益比(以月計而且僅3,6,9,12)</option>
+                            <option value="PBR">股價淨值比</option>
+                            
+                        </select>
+                        <select id="comparison4" class="form-control">
+                            <option value="1">&gt;</option>
+                            <option value="2">&lt;</option>
+                            
+                        </select>
+                        <input id="text4" type="text" name="data4" class="textbox4">
+                        </form>
                 </div>
                 
                 <div class="col-md-3">
-                    <input type="button" value="search" onclick="search()" class="button1 btn-success btn-lg" id="search"><br>
+                    <input type="button" value="search" onclick="isNum()" class="button1 btn-success btn-lg" id="search"><br>
                     <input type="button" value="clear" class="button1 btn-warning btn-lg" id="clear" onclick="clear2()">
                 </div>
                 
             </div>
             <div class="row" id="resultHere" data-wow-delay="2s">
-                <table id="table1" border="1" width="100%" class="table table-bordered">
+                <table id="table1" border="1" width="100%" class="table table-striped">
                     <thead id="thead1">
                         <tr>
                             <th>股票代號</th>
@@ -275,17 +354,9 @@
                     <div class="input-group">
                         <input id="stockIndex" type="text" class="form-control"     placeholder="輸入入股票代碼">
                         <span class="input-group-btn">
-                            <button class="btn btn-success" type="button" onclick="getData()">開始分析</button>
+                            <button class="btn btn-success" type="button" onclick="getSharpe()">開始分析</button>
                         </span>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 text-center">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center">
                 </div>
             </div>
             <div class="row">
@@ -294,8 +365,27 @@
                     </div>
                 </div>
             </div>
-            <div id="qqq">
-                
+            <div class="row">
+                <div class="col-md-6 text-center" id="leftResult">
+                    <div class="col-md-12">
+                        <h3 id="stockName">股票名稱</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="images/logo-square.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-12">
+                        <p id="warning">股票名稱</p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="rightResult">
+                    <ul class="list-inline list-unstyled text-center" id="stare-line">
+                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                    </ul>
+                    
+                </div>
             </div>
         </div>
     </section>
@@ -303,12 +393,12 @@
     <footer id="communicate">
         <div class="container">
             <div class="col-sm-2">
-                <img src="imgs/logo.png" class="img-responsive">
+                <img src="images/logo-square.png" class="img-responsive">
                     </div>
             <div class="col-sm-6">
                 <ul class="list-inline list-unstyled text-center">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">小圓麵包</a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/groups/1527998927505701/?fref=ts">Facebook</a></li>
+                    <li><a target="_blank" href="https://www.yannick.com.tw/">小圓麵包</a></li>
                     <li><a href="#">關於我們</a></li>
                     <li><a href="#">聯絡資訊</a></li>
                 </ul>
@@ -318,7 +408,7 @@
                     <strong>圖靈股份有限公司</strong>
                     台北市中正區<br>
                     成功高級中學<br>
-                    <abbr title="Phone">TEL：</abbr> (02) 1234-5678
+                    <abbr title="Phone">TEL：</abbr> (02) 2321-6256
                 </address>
             </div>
         </div>
