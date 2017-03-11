@@ -325,7 +325,7 @@
                 </div>
                 
             </div>
-            <div class="row" id="resultHere" data-wow-delay="2s">
+            <div class="row　wow flipInX" id="resultHere" data-wow-delay="2s">
                 <table id="table1" border="1" width="100%" class="table table-striped">
                     <thead id="thead1">
                         <tr>
@@ -354,36 +354,64 @@
                     <div class="input-group">
                         <input id="stockIndex" type="text" class="form-control"     placeholder="輸入入股票代碼">
                         <span class="input-group-btn">
-                            <button class="btn btn-success" type="button" onclick="getSharpe()">開始分析</button>
+                            <button class="btn btn-success" type="button" onclick="checkHealth()">開始分析</button>
+                            <button class="btn btn-warning" type="button" onclick="clear3()">清除資料</button>
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="display:none;">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div id="resultx">
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="display:none;" id="healthResult">
                 <div class="col-md-6 text-center" id="leftResult">
                     <div class="col-md-12">
                         <h3 id="stockName">股票名稱</h3>
                     </div>
-                    <div class="col-md-12">
-                        <img src="images/logo-square.png" class="img-responsive">
+                    <div class="col-md-12" id="stockImg">
                     </div>
                     <div class="col-md-12">
-                        <p id="warning">股票名稱</p>
+                        <p id="warning">警訊</p>
                     </div>
                 </div>
                 <div class="col-md-6" id="rightResult">
-                    <ul class="list-inline list-unstyled text-center" id="stare-line">
-                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
-                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
-                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
-                        <li><img src="images/stare.png" class="img-responsive inline-block"></li>
-                    </ul>
+                    <div class="col-md-12" id="stockStares">
+                        <ul class="list-inline list-unstyled text-center" id="stare-line">
+                            <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                            <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                            <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                            <li><img src="images/stare.png" class="img-responsive inline-block"></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12" id="stockData">
+                        <table id="stockTable" width="100%" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>名稱</th>
+                                    <th>數值</th>
+                                    <th>名稱</th>
+                                    <th>數值</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stockTbody">
+                                <tr>
+                                    <td>名稱</td>
+                                    <td>數值</td>
+                                    <td>名稱</td>
+                                    <td>數值</td>
+                                </tr>
+                                <tr>
+                                    <td>名稱</td>
+                                    <td>數值</td>
+                                    <td>名稱</td>
+                                    <td>數值</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     
                 </div>
             </div>

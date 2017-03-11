@@ -23,6 +23,7 @@ function singlestock(id,filename) {
     var canvasTd = document.createElement('td');
     canvasTd.id = id + "div";
     canvasTd.setAttribute("colspan", document.getElementById(id).childNodes.length)
+    canvasTd.setAttribute("class", "animated fadeIn")
     canvasTr.appendChild(canvasTd)
     insertAfter(canvasTr, document.getElementById(id))
     
@@ -134,7 +135,7 @@ function singlestock(id,filename) {
                      {"quarter": "2014"},{"quarter": " "},{"quarter": " "},{"quarter": " "},
                      {"quarter": "2013"},{"quarter": " "},{"quarter": " "},{"quarter": " "},
                      {"quarter": "2012"},{"quarter": " "},{"quarter": " "},{"quarter": " "}]
-        var scaleX = d3.scaleLinear().range([0, width*0.9]).domain([0,18]);
+        var scaleX = d3.scaleLinear().range([0, width*0.85]).domain([0,18]);
         var axisX = d3.axisTop().scale(scaleX).tickValues([2,6,10,14,18]) .tickFormat(function(d, i){return d*0 + (2016 - i);});
         var axisY = d3.axisLeft().scale(scaleY).ticks(10);
         canvas.append('g').call(axisX).attr({'fill':'none', 'stroke':'#000'}); 

@@ -153,49 +153,86 @@ div#resulthere{
     padding-top: 5%;
 }
 
-section#stocktest table{
-    animation-duration: 3s;
-    animation-name: slidein;
-}
-
+/*section#stocktest table{*/
+/*    animation-duration: 3s;*/
+/*    animation-name: slidein;*/
+/*}*/
+/**/
 /*section#stocktest td{*/
 /*    animation-duration: 3s;*/
 /*    animation-name: slidein;*/
 /*}*/
-
-@keyframes slidein {
-    from {
-        color: #FFFFCE;
-        //transform: translateX(100%);
-    }
-    
-    to {
-        
-        //transform: translateX(0rem);
-    }
-}
+/**/
+/*@keyframes slidein {*/
+/*    from {*/
+/*        color: #FFFFCE;*/
+/*        //transform: translateX(100%);*/
+/*    }*/
+/*    */
+/*    to {*/
+/*        */
+/*        //transform: translateX(0rem);*/
+/*    }*/
+/*}*/
 
 
 /* 股票健檢 */
 section#stockexam .section-heading{
-    padding-top:10%;
+    padding-top:5%;
 }
 
 section#stockexam .input-group{
-    padding-top:5%;
-    padding-bottom: 5%;
+    padding-top:3%;
+    padding-bottom: 3%;
+}
+
+div#healthResult{
+    background-color: #FFFFFF;
+}
+
+section#stockexam h3{
+    padding-top:0;
+    padding-bottom: 1rem;
+}
+
+section#stockexam p{
+    font-size: 2rem;
+}
+
+div#leftResult>div{
+    margin-bottom: 2rem;
+    background-color: #DDDDDD;
+    border-radius:2rem;
+    padding: 3rem;
+    
+}
+
+div#rightResult>div{
+    margin-bottom: 2rem;
+    background-color: #DDDDDD;
+    border-radius:2rem;
+    padding: 3rem;
+    
 }
 
 div#leftResult{
-    background-color: #F0BBFF;
+    padding-left: 0;
+    padding-right: 1rem;
 }
 
 div#rightResult{
-    background-color: #00FFFF;
+    padding-left: 1rem;
+    padding-right: 0;
 }
 
 div#rightResult img{
-    height: 5rem;
+    height: 7rem;
+}
+
+table#stockTable,
+table#stockTable td,
+table#stockTable th{
+    border-color: #000000;
 }
 
 /* 頁尾 */

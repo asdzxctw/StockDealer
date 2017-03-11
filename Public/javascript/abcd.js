@@ -22,6 +22,14 @@ var result4 = []
 var outIndex = []
 var outcome = []
 
+function checkHealth(){
+    if($('#healthResult').is(":visible")){
+        $('#healthResult').fadeOut(400);
+        setTimeout("getSharpe()", 400 )
+    }else{
+        setTimeout("getSharpe()", 400 )
+    }
+}
 
 function getURL(request){
     var filename = request.target
@@ -103,6 +111,7 @@ function display(dsp){
 
 function sentID(id){
     var ic = "s"+id
+    $('html,body').animate({scrollTop:$("#s"+id).offset().top-90},800);
     if (testrequest.searchable==true){
         var tar = document.getElementById(ic)
         if(tar.name=="did"){
@@ -162,6 +171,10 @@ function clear2(){
     
 };
 
+function clear3(){
+    $('#healthResult').fadeOut(1000);
+}
+
 function parsepin(aaa){
     return parseFloat(aaa)*parseFloat(aaa)
 }
@@ -172,9 +185,7 @@ function getSharpe(){
     var ss = document.getElementById("stockIndex")
     var stockIndex = ss.value
     var a = []
-    var avg = 0
-    var sd = 0
-    var sharpValue = 0
+    
     
     var stock_i = 0;
     
@@ -182,6 +193,9 @@ function getSharpe(){
     
     d3.csv(path,function(data){
            
+           var avg = 0
+           var sd = 0
+           var sharpValue = 0
            
            for(i=0;i<data.length;i++){
             if(data[i]["index"] == stockIndex){
@@ -291,70 +305,203 @@ function getSharpe(){
            stareline.innerHTML = ""
            for(i=0;i<5;i++){
               if(i<stares){
-               stareline.innerHTML += "<li><img src=\"images/stare.png\" class=\"img-responsive inline-block animated flip \"></li>"
+               stareline.innerHTML += "<li><img src=\"images/stare.png\" class=\"img-responsive inline-block animated flip \" style=\" animation-delay: " + (i*0.2+1) + "s; \"></li>"
                  }else{
-                    stareline.innerHTML += "<li><img src=\"images/stare-white.png\" class=\"img-responsive inline-block animated flip \"></li>"
+                    stareline.innerHTML += "<li><img src=\"images/stare-white.png\" class=\"img-responsive inline-block animated fadeIn \" style=\" animation-delay: " + (i*0.2+1.5) + "s; \"></li>"
                 }
            
            }
            
+           document.getElementById("stockImg").innerHTML = ""
+           
+           //長條圖
+           var w = 500, h = 250, padding = 30, barMargin = 120;
+           var stockData = [Math.round(sharpe*100)/100,
+                            Math.round(avg*100)/100,
+                            Math.round(sd*100)/100]
+           
+           stockData2 = [{c:"夏普" , n:Math.round(sharpe*100)/100},
+                         {c:"ROE" , n:Math.round(avg*100)/100},
+                         {c:"浮動度" , n:Math.round(sd*100)/100}]
+           
+           //這個函示可以取得資料的最大值、最小值
+           var Ymax = d3.max(stockData, function(d){return d}),
+           Ymin = d3.min(stockData, function(d){return d})
+           
+           //輸出的範圍是左邊的padd距離，到右邊的padding
+           var xScale = d3.scaleLinear() //產生一個屬於X軸的線性尺度
+           .domain([0, stockData.length]) //傳入的值改為資料的數量
+           .range([padding , w - padding])
+           
+           //類似X軸的尺度
+           var yScale = d3.scaleLinear()
+           .domain([Ymin, Ymax])
+           .range([30, h - 30])
+           
+           //算出每一個bar的寬度
+           var barWidth = (w - padding*2) / stockData.length - barMargin;
            
            
+           var s = d3.select('#stockImg').append('svg').attr("width",w).attr("height",h);
+           
+           console.log("dadata")
+
+           var imgText = ["夏普","ROE ","浮動度"]
+           
+           s.selectAll('rect')
+           .data(stockData)
+           .enter()
+           .append('rect')
+           .attr('fill','#09c')
+           .attr('width',barWidth + padding)
+           .attr('height',function(d){return yScale(d)})
+           .attr('x',function(d, i){return xScale(i) + barWidth +10})
+           .attr('y',function(d){return h - yScale(d)});
+           
+           
+           s.selectAll('text').data(stockData2).enter() //補上資料數值
+           .append('text')
+           .text(function(d){return (d.c+d.n)}) //將值寫到SVG上
+           .attr('fill','black')
+           .attr('x',function(d, i){return xScale(i) + barWidth/2 + barWidth + 24})
+           .attr('y',function(d){return h - yScale(d.n) -10})
+           .attr('text-anchor','middle')
+           .attr('font-size','15px')
+           
+           
+           
+           
+           
+           
+           //document.getElementById("healthResult").style.display = "block"
            
            })
     
     
+    var q = d3.queue()
+    
+    for(i=0;i<datalist.length;i++){
+        q.defer(d3.csv, tech + datalist[i] +".txt")
+    }
+    q.await(processData);
+    
+    //取得所有資料
+    function processData(error, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16) {
+        var datas = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16]
+        var dataValues = []
+        
+        for(u=0;u<datas.length;u++){
+            console.log("u",u)
+            var x = datas[u][stock_i];
+            var avg = 0
+            
+            for (i=2012;i<=2015; i++){
+                
+                var sum = parseInt(x[i+"Q1"])+ parseInt(x[i+"Q2"])+parseInt(x[i+"Q3"])+parseInt(x[i+"Q4"])
+                avg  += parseInt(sum);
+                
+                
+            }
+            var sum = parseInt(x["2016Q1"])+parseInt(x["2016Q2"])+parseInt(x["2016Q3"])
+            avg  += parseInt(sum);
+            
+            console.log("sum",avg)
+            avg = Math.round((avg/19)*100)/100
+            
+            dataValues.push(avg)
+            
+        }
+        
+        console.log(dataValues)
+        
+        var stockTbody = document.getElementById("stockTbody")
+        stockTbody.innerHTML = ""
+        
+        for(i=0;i<datalist.length/2;i++){
+            var sData = document.createElement("tr")
+            var sName1 = document.createElement("td")
+            sName1.innerHTML = display(datalist[i*2])
+            var sName2 = document.createElement("td")
+            sName2.innerHTML = display(datalist[i*2+1])
+            var sNum1 = document.createElement("td")
+            sNum1.innerHTML = dataValues[i*2]
+            var sNum2 = document.createElement("td")
+            sNum2.innerHTML = dataValues[i*2+1]
+            
+            sData.appendChild(sName1)
+            sData.appendChild(sNum1)
+            sData.appendChild(sName2)
+            sData.appendChild(sNum2)
+            stockTbody.appendChild(sData)
+            
+        }
+        
+        
+    }
+    
+    $('html,body').animate({scrollTop:$('#stockexam').offset().top},1000);
+    if($('#healthResult').is(":visible")){
+        $('#healthResult').fadeOut(500);
+        $('#healthResult').fadeIn(1500);
+    }else{
+        $('#healthResult').fadeIn(2000);
+    }
+    //$('#healthResult').fadeIn(2000);
+    
     
 }
 
-//取得所有指數
-function getData(){
-    tech = "https://cocoflyliu.github.io/stock_crawler/data/"
-    var ss = document.getElementById("stockIndex")
-    var stockIndex = ss.value
-    var a = []
-    
-    var stock_i = 0;
-    
-    path = tech + "EPS" + ".txt";
-    
-    
-    d3.csv(path,function(data){
-           
-           for(i=0;i<data.length;i++){
-           if(data[i]["index"] == stockIndex){
-           stock_i = i;
-           break;
-           }
-           }
-           
-           
-           
-           
-           
-    })
-    
-    for(i=0;i<datalist.length;i++){
-        
-        path = tech + datalist[i] + ".txt";
-        var typetype = datalist[i];
-        //alert(datalist[i]);
-        
-        d3.csv( path,function(data){
-               
-               var x = data[stock_i];
-               var resultxx = document.getElementById("resultx");
-               var kkk = document.createElement("p");
-               kkk.innerHTML=x["2012Q1"];
-               resultxx.appendChild(kkk);
-               dataResult.push(x["2012Q1"]);
-               if(dataResult.length == 16){
-               console.log(dataResult);
-               }
-               })
-    }
-    
-}
+
+
+
+////取得所有指數
+//function getData(){
+//    tech = "https://cocoflyliu.github.io/stock_crawler/data/"
+//    var ss = document.getElementById("stockIndex")
+//    var stockIndex = ss.value
+//    var a = []
+//    
+//    var stock_i = 0;
+//    
+//    path = tech + "EPS" + ".txt";
+//    
+//    
+//    d3.csv(path,function(data){
+//           
+//           for(i=0;i<data.length;i++){
+//           if(data[i]["index"] == stockIndex){
+//           stock_i = i;
+//           break;
+//           }
+//           }
+//           
+//           
+//           
+//           
+//           
+//    })
+//    
+//    for(i=0;i<datalist.length;i++){
+//        
+//        path = tech + datalist[i] + ".txt";
+//        var typetype = datalist[i];
+//        //alert(datalist[i]);
+//        
+//        d3.csv( path,function(data){
+//               
+//               var x = data[stock_i];
+//               var resultxx = document.getElementById("resultx");
+//               var kkk = document.createElement("p");
+//               kkk.innerHTML=x["2012Q1"];
+//               resultxx.appendChild(kkk);
+//               dataResult.push(x["2012Q1"]);
+//               if(dataResult.length == 16){
+//               console.log(dataResult);
+//               }
+//               })
+//    }
+//    
+//}
 
 
 
@@ -368,7 +515,9 @@ function isNum(){
     }else if( isNaN(parseFloat(f4.text4.value))&&f4.text4.value!="" ){
         alert("請輸入數字!")
     }else{
-        search()
+        $('html,body').animate({scrollTop:$('#resultHere').offset().top-70},800);
+        $("#resultHere").fadeOut(1000)
+        setTimeout("search()",800)
     }
 }
 
@@ -426,8 +575,6 @@ function search(){
     if (searchcount > 0){
         
         
-        
-        $('html,body').animate({scrollTop:$('#resultHere').offset().top-70},800);
         
         //取得資料
         var q = d3.queue()
@@ -826,6 +973,9 @@ function search(){
                 tit.appendChild(row);
                 
             }
+            
+            
+            $("#resultHere").fadeIn(600)
             
             
         }
