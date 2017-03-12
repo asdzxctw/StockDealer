@@ -354,8 +354,13 @@ function getSharpe(){
            .append('rect')
            .attr('fill','#09c')
            .attr('width',barWidth + padding)
-           .attr('height',function(d){return yScale(d)})
+           .attr('height',0)
            .attr('x',function(d, i){return xScale(i) + barWidth +10})
+           .attr('y',h)
+           .transition()
+           .duration(1500)
+           .delay(500)
+           .attr('height',function(d){return yScale(d)})
            .attr('y',function(d){return h - yScale(d)});
            
            
@@ -364,9 +369,13 @@ function getSharpe(){
            .text(function(d){return (d.c+d.n)}) //將值寫到SVG上
            .attr('fill','black')
            .attr('x',function(d, i){return xScale(i) + barWidth/2 + barWidth + 24})
-           .attr('y',function(d){return h - yScale(d.n) -10})
+           .attr('y',h)
            .attr('text-anchor','middle')
            .attr('font-size','15px')
+           .transition()
+           .duration(1500)
+           .delay(300)
+           .attr('y',function(d){return h - yScale(d.n) -10})
            
            
            
